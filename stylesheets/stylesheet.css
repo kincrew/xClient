@@ -375,7 +375,40 @@ Full-Width Styles
 }
 
 
+/*******************************************************************************
+Code syntax
+*******************************************************************************/
 
+span.pp {
+	color: #780078;
+}
+span.rd {
+	color: #BF0000;
+}
+span.gr {
+	color: #209020;
+}
+
+ul.strike li {
+	color : #58AC58
+}
+button {
+	background: #DF0000;
+	color:#F7F7F7;
+	border: 1px solid #A00000;
+	border-radius: 5px;
+}
+button:hover {
+	border-color: #D7D7D7;
+	background: #fff;
+	color:#900000;
+}
+button.excute {
+	background: #DF0000;
+	color:#F7F7F7;
+	border-color:#A00000;
+	padding:3px 8px;
+}
 /*******************************************************************************
 Small Device Styles
 *******************************************************************************/
