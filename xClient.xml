@@ -10,22 +10,23 @@
         <select itemPath="" produces="XML">
             <inputs>
 				<key id="authorization" type="xs:string" paramType="variable" required="false"/>
-				<key id="charset" type="xs:string" paramType="variable" required="false"/>
-				<key id="content" type="xs:string" paramType="variable" required="false"/>
-				<key id="contenttype" type="xs:string" paramType="variable" required="false"/>
-				<key id="cookie" type="xs:string" paramType="variable" required="false"/>
-				<key id="css" type="xs:string" paramType="variable" required="false"/>
-				<key id="header" type="xs:string" paramType="variable" required="false"/>
-				<key id="json" type="xs:string" paramType="variable" required="false"/>
-				<key id="method" type="xs:string" paramType="variable" required="false"/>
-				<key id="oauth" type="xs:string" paramType="variable" required="false"/>
-				<key id="param" type="xs:string" paramType="variable" required="false"/>
-				<key id="referer" type="xs:string" paramType="variable" required="false"/>
-				<key id="tidy" type="xs:string" paramType="variable" required="false"/>
-				<key id="timeout" type="xs:string" paramType="variable" required="false"/>
-				<key id="ua" type="xs:string" paramType="variable" required="false"/>
-				<key id="url" type="xs:string" paramType="variable" required="true"/>
-				<key id="xpath" type="xs:string" paramType="variable" required="false"/>
+				<key id="charset"       type="xs:string" paramType="variable" required="false"/>
+				<key id="content"       type="xs:string" paramType="variable" required="false"/>
+				<key id="contenttype"   type="xs:string" paramType="variable" required="false"/>
+				<key id="cookie"        type="xs:string" paramType="variable" required="false"/>
+				<key id="css"           type="xs:string" paramType="variable" required="false"/>
+				<key id="format"        type="xs:string" paramType="variable" required="false"/>
+				<key id="headers"       type="xs:string" paramType="variable" required="false"/>
+				<key id="json"          type="xs:string" paramType="variable" required="false"/>
+				<key id="method"        type="xs:string" paramType="variable" required="false"/>
+				<key id="oauth"         type="xs:string" paramType="variable" required="false"/>
+				<key id="param"         type="xs:string" paramType="variable" required="false"/>
+				<key id="referer"       type="xs:string" paramType="variable" required="false"/>
+				<key id="tidy"          type="xs:string" paramType="variable" required="false"/>
+				<key id="timeout"       type="xs:string" paramType="variable" required="false"/>
+				<key id="ua"            type="xs:string" paramType="variable" required="false"/>
+				<key id="url"           type="xs:string" paramType="variable" required="true"/>
+				<key id="xpath"         type="xs:string" paramType="variable" required="false"/>
             </inputs>
             <execute>
                 <![CDATA[
@@ -50,17 +51,24 @@
 						if (!JSON) y.include('http://www.datatables.org/javascript/json2.js');
 						request.query(JSON.parse(param));
 					}
+					
+					if (headers) {
+						if (!JSON) y.include('http://www.datatables.org/javascript/json2.js');
+						var headers = JSON.parse(headers);
+						for (var key in headers) {
+							request.header(key, headers[key]);
+						}
+					}
 					if (json) request.jsonCompat('new');
-
 					// SENDING HTTP REQUEST
-                    var resp ;
+					var resp ;
 					if (method == "get") resp = request.get();
 					else resp = (content) ? request.post(content) : request.post();
 					// RECIEVING DATA
-                    y.log('response length: ' + (resp.response && resp.response.length));
+					y.log('response length: ' + (resp.response && resp.response.length));
 					var data = <resources/>;
-                    var redirect = y.diagnostics.redirect;
-                    var count = redirect && redirect.length();
+					var redirect = y.diagnostics.redirect;
+					var count = redirect && redirect.length();
 					if (count) {
 						for (var i = 0; i < count; i += 1) {
 							var redir = redirect[i];
@@ -79,10 +87,10 @@
 							}
 						}
 					}	
-                    // response headers
+					// response headers
 					var headers = <headers/>;
 					var tag;
-                    for (header in resp.headers) {
+					for (header in resp.headers) {
 						var headerValue = resp.headers[header];
 						if (typeof headerValue == "object") {							
 							if (!JSON) y.include('http://www.datatables.org/javascript/json2.js');
@@ -90,7 +98,7 @@
 						} 
 						tag = header.replace(reTagCase, tagCase);
 						headers.headers += <{tag}>{headerValue}</{tag}>;
-                    }
+					}
 					// set result
 					data.resources += <url>{url}</url>;
 					data.resources += <status>{resp.status}</status>;
