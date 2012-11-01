@@ -30,7 +30,7 @@
             </inputs>
             <execute>
                 <![CDATA[
-					var location,
+					var location, 
 						JSON,
 						method = method || "get",
 						reTagCase = /(^|\-)(\w)/g,
