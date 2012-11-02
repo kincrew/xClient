@@ -54,7 +54,7 @@ g.xReader = function() {
 				break;
 		}
 	}
-	option.table = (option.table === false) ? "" : option.table || "http://kincrew.github.com/xClient/xClient/xClient.xml";
+	option.table = (option.table === false) ? "" : option.table || "http://kincrew.github.com/xClient/xClient.xml";
 	option.ua    = (option.ua == "current") ? navigator.userAgent : option.ua;
 	option.status = "argument";
 
