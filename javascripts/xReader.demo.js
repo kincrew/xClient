@@ -61,8 +61,7 @@ $(document).ready(function(){
 		elem.html("로딩중...");
 		var target = document.getElementById("exDemoResult5");
 		target.innerHTML = "";
-		var url = "http://www.khan.co.kr/rss/rssdata/total_news.xml"; 
-		xReader(url, "title", function(data) {
+		xReader("www.khan.co.kr/rss/rssdata/total_news.xml", "title", function(data) {
 			elem.removeClass('load');
 			elem.html("실행하기");
 			var target = document.getElementById("exDemoResult5");

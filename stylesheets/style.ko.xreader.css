@@ -375,10 +375,15 @@ div.exCode {
 div.exDemoResult {
 	margin-top: 15px;
 	padding:5px 15px;
-	background:#fff;
-	border:5px solid #7FA0CE; 
-	height: 100px;
+	background:#3C3C3C;
+	color: #F3F3F3;
+	border:5px solid #282828; 
+	height: 150px;
 	overflow-y: scroll;
+	text-shadow:1px 1px #282828;
+}
+div.exDemoResult img {
+	border:0; padding:0;
 }
 #exDemoResult4 div {
 	float:left;
@@ -388,4 +393,8 @@ div.exDemoResult {
 }
 .fs {
 	font-size:12px;
+}
+h3, h5 {
+	color:#3C3C3C;
+	text-shadow: 1px 1px #FFFFFF;
 }

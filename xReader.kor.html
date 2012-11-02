@@ -35,7 +35,7 @@
 			<li>소스 : <a href="xReader.js" target="_blank">xReader.js</a>, <a href="xClient.xml" target="_blank">xClient.xml</a></li>
 			<li>만든이 : <a href="http://bootleg.egloos.com/321865" target="_blank">SD05[blog]</a>, <a href="mailto:oneiroi@outlook.com" target="_blank">oneiroi@outlook.com</a></li>
 		</ul>
-		<h3 style="font-style:italic;color:#FF0000">제한 철폐!</h3>
+		<h3 style="font-style:italic;color:#FF0000;">제한 철폐!</h3>
 		<p><img src="images/baby.jpg" style="float:right;width:200px;margin-top:-15px;"/>
 			타 리소스를 접근 제약으로 지독히 고생중입니까? 최후의 만능 해결 방법이 바로 여기에 있습니다.
 		</p>
@@ -163,8 +163,7 @@
 		<h5>RSS / XML</h5>
 		<div class="exCode">
 			<span class="gr">/* 경향신문 전체뉴스 제목 RSS 출력 */</span><br/>
-			var url = <span class="rd">"http://www.khan.co.kr/rss/rssdata/total_news.xml"</span>;<br/> 
-			xReader(url, <span class="rd">"title"</span>, function(data) {<br/>
+			xReader(<span class="rd">"www.khan.co.kr/rss/rssdata/total_news.xml"</span>, <span class="rd">"title"</span>, function(data) {<br/>
 			&nbsp; &nbsp; var target = document.getElementById("exDemoResult5");<br/>
 			&nbsp; &nbsp; var html = "&lt;ul>" + data.content.replace(/title/gi, "li") +"&lt;/ul>" ;<br/>
 			&nbsp; &nbsp; target.innerHTML = html;<br/>
