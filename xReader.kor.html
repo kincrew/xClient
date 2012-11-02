@@ -32,8 +32,8 @@
 		<ul>
 			<li>버전 : v0.0.7a - 2012-11-02</li>
 			<li>라이선스 : MIT License</li>
-			<li>소스 : <a href="xReader.js" target="_blank">xReader.js</a></li>
-			<li>만든이 : <a href="bootleg.egloos.com" target="_blank">SD05</a>, oneiroi@outlook.com, blog</li>
+			<li>소스 : <a href="xReader.js" target="_blank">xReader.js</a>, <a href="xClient.xml" target="_blank">xClient.xml</a></li>
+			<li>만든이 : <a href="http://bootleg.egloos.com/321865" target="_blank">SD05[blog]</a>, <a href="mailto:oneiroi@outlook.com" target="_blank">oneiroi@outlook.com</a></li>
 		</ul>
 		<h3 style="font-style:italic;color:#FF0000">제한 철폐!</h3>
 		<p><img src="images/baby.jpg" style="float:right;width:200px;margin-top:-15px;"/>
@@ -63,7 +63,7 @@
 		<p>xReader는 구형 IE5.5부터 최근의 대부분 브라우저를 지원하며, 자동적으로 charset의 인식과 redirect 부분까지 처리하고 있습니다.</p>
 		<ul>
 			<li>거의 모든 브라우저 지원 : IE5.5~, Safari, Chrome, Firefox, Opera, Netscape Navigator9 테스트</li>
-			<li>자동 charset 지원 : utf-8, euc-kr 등</li>
+			<li>자동 charset 지원 : utf-8, euc-kr, iso-8859-1 </li>
 			<li>redirect 헤더 전송시 이동 페이지 적용</li>
 			<li>편리한 css selector 사용 가능 </li>
 			<li>html, xml, json, jsonp 등 다양한 텍스트형식 컨텐츠 지원</li>
@@ -116,6 +116,7 @@
 			&nbsp; &nbsp; description : "오류 내용" <br/>
 			}<br/>
 		</div>
+		<p class="fs rd"> 참고) 위 API는 향후 개선될 수 있습니다. 이를 대비하려는 경우, 소스를 다운하여 수정후 사용하시기 바랍니다.</p>
 
 		<h3>유용한 간단 예제</h3>
 
@@ -136,7 +137,7 @@
 			<div id="exDemo3" class="exButton">실행하기</div>
 		</div>
 		-->
-		<h5>JSONP</h5>
+		<h5>JSONP / JSON</h5>
 		<div class="exCode">
 			<span class="gr">/* flickr에서 고양히 출력 */</span><br/>
 			var url = <span class="rd">"http://api.flickr.com/services/feeds/photos_public.gne?"</span>; <br/>
@@ -156,6 +157,7 @@
 			})
 			<div id="exDemo4" class="exButton">실행하기</div>
 		</div>
+		<p class="fs rd"> 참고) JSON인 경우, 위 소스에서 substring 메서드가 사용된 8행을 제거하면 동일하겠습니다. </p>
 		<div id="exDemoResult4" class="exDemoResult"> 
 		</div>
 		<h5>RSS / XML</h5>
@@ -179,7 +181,7 @@
 
 		<h3>지원 및 연락처</h3>
 
-		<p>사용에 문제가 있거나 의문 및 추가적 지원이 필요하다면 <a href="mailto:oneiroi@outlook.com">oneiroi@outlook.com</a>나 <a href="bootleg.egloos.com" target="_blank">블로그</a>로 연락하시기 바랍니다.</p>
+		<p>사용에 문제가 있거나 의문 및 추가적 지원이 필요하다면 <a href="mailto:oneiroi@outlook.com">oneiroi@outlook.com</a>나 <a href="http://bootleg.egloos.com/321865" target="_blank">블로그</a>로 연락하시기 바랍니다.</p>
 
 
 		<img src="images/yql.gif" style="float:right;width:64px;"/> powered by <a href="http://developer.yahoo.com/yql/" target="_blank">Yahoo! Query Language</a>

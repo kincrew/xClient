@@ -308,13 +308,13 @@ Full-Width Styles
 Code syntax
 *******************************************************************************/
 
-span.pp {
+.pp {
 	color: #780078;
 }
-span.rd {
+.rd {
 	color: #BF0000;
 }
-span.gr {
+.gr {
 	color: #209020;
 }
 
@@ -344,7 +344,7 @@ div.exButton {
 	right:10px;
 	cursor: pointer;
 	bottom:10px;
-	border: 1px solid #c7c7c7;
+	border: 3px solid #9B0000;
 	background: #fff;
 	padding:5px;
 	font:12px gulim;
@@ -356,6 +356,12 @@ div.exButton {
 }
 div.exButton:hover {
 	background:#f7f7f7;
+}
+div.exButton.load {
+	background:#BF0000;
+	color:#f7f7f7;
+	border-color:#9B0000;
+	text-shadow:1px 1px #570000;
 }
 div.exCode {
 	position: relative;
@@ -379,4 +385,7 @@ div.exDemoResult {
 }
 .clear {
 	clear:both;
+}
+.fs {
+	font-size:12px;
 }

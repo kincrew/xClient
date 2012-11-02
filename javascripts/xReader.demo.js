@@ -37,6 +37,8 @@ $(document).ready(function(){
 		}
 		elem.addClass('load');
 		elem.html("로딩중...");
+		var target = document.getElementById("exDemoResult4");
+		target.innerHTML = "";
 		xReader(url, function(data) {		
 			elem.removeClass('load');
 			elem.html("실행하기");
@@ -44,7 +46,6 @@ $(document).ready(function(){
 			result = result.substring(result.indexOf("("), result.lastIndexOf(")")+1);
 			result = eval(result);
 			var items = result.items;
-			var target = document.getElementById("exDemoResult4");
 			var html = "";
 			for (var i=0; items.length > i ;i++ ) html += "<div>" + items[i].description + "</div>";
 			target.innerHTML = html + '<div class="clear"></div>';
@@ -58,6 +59,8 @@ $(document).ready(function(){
 		}
 		elem.addClass('load');
 		elem.html("로딩중...");
+		var target = document.getElementById("exDemoResult5");
+		target.innerHTML = "";
 		var url = "http://www.khan.co.kr/rss/rssdata/total_news.xml"; 
 		xReader(url, "title", function(data) {
 			elem.removeClass('load');
