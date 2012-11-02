@@ -33,7 +33,7 @@ g.xReader = function(a,b,c,o) {
 	b=((typeof b=="function")&&((c&&(o=c)&&(c=b))||(c=b)))?z:b;
 	a='USE "'+h+'kincrew.github.com/xClient/xClient.xml" AS x; SELECT * FROM x WHERE url="'+(a.indexOf("http")?h+a:a)+q;
 	g[i]=function(r){
-		(r.error)?o&&o(r.error):c(r.query.results.resources);
+		(r.error)?o?o(r.error):c(r):c(r.query.results&&r.query.results.resources);
 		try{delete g[i]}catch(err){};//IE5.5
 		e.removeChild(d.getElementById(i));
 	}

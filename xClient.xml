@@ -115,7 +115,7 @@
 							content = '';
 						}
 					} else content = '';
-					y.log(typeof content)
+					if (format == "jsonp") content = content.substring(content.indexOf("("), content.lastIndexOf(")")+1);
 					if (xpath || css) {
 						if (css) {
 							y.include("http://css2xpath.googlecode.com/svn/trunk/build/css2xpath.min.js");
