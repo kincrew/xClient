@@ -50,11 +50,11 @@ g.xReader = function() {
 				else option.callback = argument;
 				break;
 			case "object" :
-				for (var i in arg) option[i] = arg[i];
+				for (var i in argument) option[i] = argument[i];
 				break;
 		}
 	}
-	option.table = (option.table === false) ? "" : option.table || "http://kincrew.github.com/xClient/xClient.xml";
+	option.table = (option.table === false) ? "" : option.table || "http://kincrew.github.com/xClient/xClient/xClient.xml";
 	option.ua    = (option.ua == "current") ? navigator.userAgent : option.ua;
 	option.status = "argument";
 
@@ -84,7 +84,7 @@ var query = function(option, encode) {
 	if (option.tidy)    statement += " AND tidy='1'";
 	if (option.charset) statement += " AND charset='" + option.charset + "'";
 	if (option.referer) statement += " AND referer='" + option.referer + "'";
-	if (option.format)  statement += " AND format='" + option.timeout + "'";
+	if (option.format)  statement += " AND format='" + option.format + "'";
 	if (option.headers) statement += " AND headers='" + oJSON(option.headers) + "'";
 	if (option.cookie)  statement += " AND cookie='" + oJSON(option.cookie) + "'";
 	if (option.params)  statement += " AND params='" + oJSON(option.params) + "'";
@@ -96,7 +96,7 @@ var query = function(option, encode) {
 
 /* JSON */
 var oJSON = function(target) {
-	if (typeof target == "string") {
+	if (typeof target != "string") {
 		if (oJSON.ecma5) return JSON.stringify(target);
 		var result = '{', check;
 		for (var key in target) {
@@ -133,7 +133,10 @@ var excute = function(data, option) {
 		if (option.target) option.target.innerHTML = data.query.results && data.query.results.resources.content;
 		if (option.callback) {
 			if (option.problem) option.callback(option.problem, option);
-			else option.callback(data.query.results.resources, option);
+			else {
+				if (option.format == "json" || option.format == "jsonp") option.callback(oJSON(data.query.results.resources.content), option);
+				else option.callback(data.query.results.resources, option);
+			}
 		}
 	}
 }
