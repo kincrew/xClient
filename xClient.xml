@@ -51,7 +51,6 @@
 						if (!JSON) y.include('http://www.datatables.org/javascript/json2.js');
 						request.query(JSON.parse(param));
 					}
-					
 					if (headers) {
 						if (!JSON) y.include('http://www.datatables.org/javascript/json2.js');
 						var headers = JSON.parse(headers);
