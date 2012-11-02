@@ -56,7 +56,7 @@ g.xReader = function() {
 	}
 	option.table = (option.table === false) ? "" : option.table || "http://kincrew.github.com/xClient/xClient.xml";
 	option.ua    = (option.ua == "current") ? navigator.userAgent : option.ua;
-	option.status = "argument";
+	option.status = "init";
 
 	g[option.id]  = function(data) {
 		option.result = data;
@@ -65,6 +65,7 @@ g.xReader = function() {
 	}
 	YQL(option);
 	option.timerId = setTimeout(function(){
+		option.status = "error";
 		option.result = option.problem = {error:{lang:"en-US", description:"timeout"}};
 		excute(option.problem, option);
 	}, option.timeout || xReader.timeout || 10000); //option.timeout || xReader.timeout || 
@@ -128,12 +129,15 @@ var YQL = function(option){
 
 var excute = function(data, option) {
 	clear(option);
-	if (option.problem && option.error) option.error(data, option);
-	else {
+	if (option.problem && option.error) {
+		option.error(data, option);
+		option.status = "error";
+	} else {
 		if (option.target) option.target.innerHTML = data.query.results && data.query.results.resources.content;
 		if (option.callback) {
 			if (option.problem) option.callback(option.problem, option);
 			else {
+				option.status = "finish";
 				if (option.format == "json" || option.format == "jsonp") option.callback(oJSON(data.query.results.resources.content), option);
 				else option.callback(data.query.results.resources, option);
 			}
