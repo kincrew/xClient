@@ -116,12 +116,6 @@
 						}
 					} else content = '';
 
-					if (format == "jsonp") {
-						y.log(format);
-						content = content.substring(content.indexOf("(")+1, content.lastIndexOf(")"));
-						y.log(content);
-					}
-
 					if (xpath || css) {
 						if (css) {
 							y.include("http://css2xpath.googlecode.com/svn/trunk/build/css2xpath.min.js");
@@ -134,6 +128,15 @@
 					if (tidy && (typeof content != "xml")) {
 						content = y.tidy(content);
 					} else if (!tidy && typeof content == "xml") content = content.toXMLString();
+						y.log(1);
+						y.log(format);
+
+					if (format == "jsonp") {
+						y.log(2);
+						y.log(format);
+						content = content.substring(content.indexOf("(")+1, content.lastIndexOf(")"));
+						y.log(content);
+					}
 					data.resources += <content>{content}</content>;
 					response.maxAge = 300;
 					response.object = data;
