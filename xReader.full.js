@@ -79,13 +79,13 @@ var query = function(option, encode) {
 		return option.statement = (encode) ? encodeURIComponent(statement) : statement;
 	}
 	statement += option.query || "SELECT * FROM xReader WHERE url='" + option.url + "'";
+	if (option.format)  statement += " AND format='" + option.format + "'";
 	if (option.ua)      statement += " AND ua='" + option.ua + "'";
 	if (option.method)  statement += " AND method='" + option.method + "'";
 	if (option.css)     statement += " AND css='" + option.css + "'";
 	if (option.tidy)    statement += " AND tidy='1'";
 	if (option.charset) statement += " AND charset='" + option.charset + "'";
 	if (option.referer) statement += " AND referer='" + option.referer + "'";
-	if (option.format)  statement += " AND format='" + option.format + "'";
 	if (option.headers) statement += " AND headers='" + oJSON(option.headers) + "'";
 	if (option.cookie)  statement += " AND cookie='" + oJSON(option.cookie) + "'";
 	if (option.params)  statement += " AND params='" + oJSON(option.params) + "'";
