@@ -115,7 +115,13 @@
 							content = '';
 						}
 					} else content = '';
-					if (format == "jsonp") content = content.substring(content.indexOf("(")+1, content.lastIndexOf(")"));
+
+					if (format == "jsonp") {
+						y.log(format);
+						content = content.substring(content.indexOf("(")+1, content.lastIndexOf(")"));
+						y.log(content);
+					}
+
 					if (xpath || css) {
 						if (css) {
 							y.include("http://css2xpath.googlecode.com/svn/trunk/build/css2xpath.min.js");
